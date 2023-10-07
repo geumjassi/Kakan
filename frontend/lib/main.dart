@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kakan_app/kakan_logo_icons.dart';
 
 void main() {
   runApp(const MyApp());
