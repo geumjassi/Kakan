@@ -1,5 +1,5 @@
 # Kakan
-![kakan](https://github.com/geumjassi/Kakan/assets/107753970/bda4ea42-f4b8-48ea-8f1a-b8de5be7ca97)
+![kakan](frontend\images\kakan.png)
 
 Kakan is an app that eliminates the hassle of deciding what and where to eat by creating a personal menu of your favorite meals from the past. You can save the details of any meal you enjoyed, such as the name, price, location, and taste, and access them anytime you need to remember them. The app can also suggest a random meal from your list based on your current location and preferences. You can filter your choices by various criteria, such as cuisine and budget.
 
