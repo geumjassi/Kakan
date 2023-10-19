@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-<<<<<<< Updated upstream
-import 'package:kakan_app/kakan_logo_icons.dart';
-=======
+// import 'package:kakan_app/kakan_logo_icons.dart';
 // import 'package:frontend/screens/homescreen/homepage.dart';
 import '/screens/screens.dart';
 import '/widgets/widgets.dart';
->>>>>>> Stashed changes
 
 void main() {
   runApp(MaterialApp(
@@ -85,15 +82,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-<<<<<<< Updated upstream
-    return const MaterialApp(
-      home: SplashPage(),
-=======
+    // return const MaterialApp(
+    //   home: SplashPage(),
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: const HomeScreen(),
->>>>>>> Stashed changes
     );
   }
 }
