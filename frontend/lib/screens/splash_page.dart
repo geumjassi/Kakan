@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:kakan_app/kakan_logo_icons.dart'; // Import Logo
+import 'package:frontend/kakan_logo_icons.dart'; // Import Logo
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
