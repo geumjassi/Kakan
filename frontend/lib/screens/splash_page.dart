@@ -44,6 +44,9 @@ class _SplashPageState extends State<SplashPage>
           _controller.reverse();
         } else {
           _controller.stop();
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (context) => HomeScreen(),
+            ));
         }
       } else if (status == AnimationStatus.dismissed) {
         _controller.forward();
