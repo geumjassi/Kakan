@@ -42,12 +42,12 @@ class HomeScreen extends StatelessWidget {
                 borderRadius: BorderRadius.all(const Radius.circular(5.0)),
                 child: Stack(
                   children: <Widget>[
-                    Image.asset(
-                      "images/kakan.png",
-                      fit: BoxFit.cover,
-                      width: 1000,
-                    ),
-                    // Image.network(item, fit: BoxFit.cover, width: 1000.0),
+                    //   Image.asset(
+                    //     "images/kakan.png",
+                    //     fit: BoxFit.cover,
+                    //     width: 1000,
+                    //   ),
+                    Image.network(item, fit: BoxFit.cover, width: 1000.0),
                     Positioned(
                       bottom: 0.0,
                       left: 0.0,
@@ -87,90 +87,90 @@ class HomeScreen extends StatelessWidget {
       appBar: const CustomAppBar(),
       extendBodyBehindAppBar: true,
       bottomNavigationBar: const CustomBottomAppBar(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Column(
-              // crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Stack(
-                  children: [
-                    //Background
-                    Container(
-                      decoration: BoxDecoration(color: Colors.black),
-                      child: SvgPicture.asset('images/Background.svg',
-                          alignment: Alignment.topCenter,
-                          width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.width),
-                    ),
-                    Column(
-                      children: [
-                        SizedBox(height: 120),
-                        CarouselSlider(
-                          options: CarouselOptions(
-                            autoPlay: true,
-                            aspectRatio: 2.0,
-                            enlargeCenterPage: true,
-                            enlargeStrategy: CenterPageEnlargeStrategy.height,
-                          ),
-                          items: imageSliders,
-                        ),
-                        //SearchBar
-                      ],
-                    ),
-                  ],
-                ),
-                // const SizedBox(
-                //     height:
-                //         20), //space between search bar and personal menu row
-                const Row(
-                  children: [
-                    Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20.0),
-                          child: Align(
-                            alignment: Alignment.topLeft,
-                            child: Text(
-                              'Personal Menu',
-                              // Replace with your desired text style
-                              style: TextStyle(fontSize: 18),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            // mainAxisSize: MainAxisSize.min,
+            children: [
+              Column(
+                // crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Stack(
+                    children: [
+                      //Background
+                      Container(
+                        child: SvgPicture.asset('images/TopHalfBG.svg',
+                            alignment: Alignment.topCenter,
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.width),
+                      ),
+                      Column(
+                        children: [
+                          const SizedBox(height: 120),
+                          CarouselSlider(
+                            options: CarouselOptions(
+                              autoPlay: true,
+                              aspectRatio: 2.0,
+                              enlargeCenterPage: true,
+                              enlargeStrategy: CenterPageEnlargeStrategy.height,
                             ),
+                            items: imageSliders,
                           ),
+                          //SearchBar
+                        ],
+                      ),
+                    ],
+                  ),
+                  // const SizedBox(
+                  //     height:
+                  //         20), //space between search bar and personal menu row
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Personal Menu',
+                          // Replace with your desired text style
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        Text(
+                          'View All',
+                          // Replace with your desired text style
+                          style: TextStyle(fontSize: 15),
                         ),
                       ],
-                    )
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: SizedBox(
-                        height: 150,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 5,
-                          itemBuilder: (context, index) {
-                            return const Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: CardFeature(),
-                            );
-                          },
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: SizedBox(
+                          width: double.infinity,
+                          height: 200,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 5,
+                            itemBuilder: (context, index) {
+                              return const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: CardFeature(),
+                              );
+                            },
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
-
-
 
 // class HomeScreen extends StatelessWidget {
 //   const HomeScreen({super.key});
