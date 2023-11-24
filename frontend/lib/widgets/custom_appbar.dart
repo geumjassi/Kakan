@@ -8,16 +8,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.black,
       elevation: 0,
       iconTheme: const IconThemeData(color: Colors.white),
-      leading: IconButton(
-        icon: const Icon(Icons.menu, size: 32), // Icon on the left side
+      title: Text("Kakan"),
+      // leading: IconButton(
+      //   icon: const Icon(Icons.menu, size: 32), // Icon on the left side
 
-        onPressed: () {
-          // Handle left icon press (e.g., open a drawer)
-        },
-      ),
+      //   onPressed: () {
+      //     // Handle left icon press (e.g., open a drawer)
+      //   },
+      // ),
       actions: [
         IconButton(
             icon:
