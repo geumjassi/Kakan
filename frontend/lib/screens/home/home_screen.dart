@@ -33,6 +33,29 @@ class HomeScreen extends StatelessWidget {
       'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60',
     ];
 
+    final List<CardFeature> personalMenuCards = [
+      CardFeature(
+        title: 'Title 1',
+        body: 'Body 1',
+      ),
+      CardFeature(
+        title: 'Title 2',
+        body: 'Body 2',
+      ),
+      CardFeature(
+        title: 'Title 3',
+        body: 'Body 3',
+      ),
+      CardFeature(
+        title: 'Title 4',
+        body: 'Body 4',
+      ),
+      CardFeature(
+        title: 'Title 5',
+        body: 'Body 5',
+      ),
+    ];
+
     final List<Widget> imageSliders = imgList
         .map(
           (item) => Container(
@@ -150,11 +173,11 @@ class HomeScreen extends StatelessWidget {
                           height: 200,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: 5,
+                            itemCount: personalMenuCards.length,
                             itemBuilder: (context, index) {
-                              return const Padding(
+                              return  Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: CardFeature(),
+                                child: personalMenuCards[index],
                               );
                             },
                           ),

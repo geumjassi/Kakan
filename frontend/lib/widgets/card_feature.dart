@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 
 class CardFeature extends StatelessWidget {
   const CardFeature({
-    super.key,
+    super.key, required this.title, required this.body,
   });
+
+  final String title;
+  final String body;
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +41,11 @@ class CardFeature extends StatelessWidget {
               ),
             ),
           ),
-          const Text(
-            "Header Text",
+          Text(title,
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
-          const Text(
-            "Body Text",
+          Text(
+            body,
             style: TextStyle(),
           )
         ],
