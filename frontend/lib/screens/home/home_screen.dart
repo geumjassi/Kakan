@@ -27,12 +27,21 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final List<String> imgList = [
       'https://images.unsplash.com/photo-1658713064117-51f51ecfaf69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       'https://images.unsplash.com/photo-1658713064971-5fcef7dfe417?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       'https://images.unsplash.com/photo-1616070829624-884057de0b29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=600&q=60',
       'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60',
       'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60',
+    ];
+
+    final List<CarouselCard> featured = [
+      CarouselCard(image: imgList[0], price: "P109.00", menu: "Pork Sisig", store: "Kitchen Garage"),
+      CarouselCard(image: imgList[1], price: "P109.00", menu: "Pork Sisig", store: "Kitchen Garage"),
+      CarouselCard(image: imgList[2], price: "P109.00", menu: "Pork Sisig", store: "Kitchen Garage"),
+      CarouselCard(image: imgList[3], price: "P109.00", menu: "Pork Sisig", store: "Kitchen Garage"),
+      CarouselCard(image: imgList[4], price: "P109.00", menu: "Pork Sisig", store: "Kitchen Garage"),
     ];
 
     final List<CardFeature> personalMenuCards = [
@@ -63,12 +72,6 @@ class HomeScreen extends StatelessWidget {
       ),
     ];
 
-    final List<Widget> imageSliders = imgList
-        .map(
-          (item) => CarouselCard(imgList: imgList, item: item),
-        )
-        .toList();
-
     return Scaffold(
       appBar: const CustomAppBar(),
       extendBodyBehindAppBar: true,
@@ -87,20 +90,21 @@ class HomeScreen extends StatelessWidget {
                       Container(
                         child: SvgPicture.asset('images/TopHalfBG.svg',
                             alignment: Alignment.topCenter,
-                            width: MediaQuery.of(context).size.width,
+                            // width: MediaQuery.of(context).size.width,
                             height: MediaQuery.of(context).size.width),
                       ),
                       Column(
                         children: [
-                          const SizedBox(height: 120),
+                          SizedBox(height: MediaQuery.of(context).size.height * 0.08),
                           CarouselSlider(
                             options: CarouselOptions(
+                              height: MediaQuery.of(context).size.height * 0.3,
                               autoPlay: true,
                               aspectRatio: 2.0,
                               enlargeCenterPage: true,
                               enlargeStrategy: CenterPageEnlargeStrategy.height,
                             ),
-                            items: imageSliders,
+                            items: featured,
                           ),
                           //SearchBar
                         ],
