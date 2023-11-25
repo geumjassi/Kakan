@@ -37,22 +37,27 @@ class HomeScreen extends StatelessWidget {
       CardFeature(
         title: 'Title 1',
         body: 'Body 1',
+        image: imgList[0],
       ),
       CardFeature(
         title: 'Title 2',
         body: 'Body 2',
+        image: imgList[1],
       ),
       CardFeature(
         title: 'Title 3',
         body: 'Body 3',
+        image: imgList[2],
       ),
       CardFeature(
         title: 'Title 4',
         body: 'Body 4',
+        image: imgList[3],
       ),
       CardFeature(
         title: 'Title 5',
         body: 'Body 5',
+        image: imgList[4],
       ),
     ];
 
