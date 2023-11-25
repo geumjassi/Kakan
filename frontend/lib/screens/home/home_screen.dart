@@ -5,6 +5,8 @@ import 'package:frontend/widgets/card_feature.dart';
 import 'package:frontend/widgets/custom_appbar.dart';
 import 'package:frontend/widgets/custom_bottombar.dart';
 
+import 'carousel_card.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -33,53 +35,37 @@ class HomeScreen extends StatelessWidget {
       'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60',
     ];
 
+    final List<CardFeature> personalMenuCards = [
+      CardFeature(
+        title: 'Title 1',
+        body: 'Body 1',
+        image: imgList[0],
+      ),
+      CardFeature(
+        title: 'Title 2',
+        body: 'Body 2',
+        image: imgList[1],
+      ),
+      CardFeature(
+        title: 'Title 3',
+        body: 'Body 3',
+        image: imgList[2],
+      ),
+      CardFeature(
+        title: 'Title 4',
+        body: 'Body 4',
+        image: imgList[3],
+      ),
+      CardFeature(
+        title: 'Title 5',
+        body: 'Body 5',
+        image: imgList[4],
+      ),
+    ];
+
     final List<Widget> imageSliders = imgList
         .map(
-          (item) => Container(
-            child: Container(
-              margin: const EdgeInsets.all(5.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.all(const Radius.circular(5.0)),
-                child: Stack(
-                  children: <Widget>[
-                    //   Image.asset(
-                    //     "images/kakan.png",
-                    //     fit: BoxFit.cover,
-                    //     width: 1000,
-                    //   ),
-                    Image.network(item, fit: BoxFit.cover, width: 1000.0),
-                    Positioned(
-                      bottom: 0.0,
-                      left: 0.0,
-                      right: 0.0,
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color.fromARGB(200, 0, 0, 0),
-                              Color.fromARGB(0, 0, 0, 0)
-                            ],
-                            begin: Alignment.bottomCenter,
-                            end: Alignment.topCenter,
-                          ),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 20.0),
-                        child: Text(
-                          'No. ${imgList.indexOf(item)} image',
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          (item) => CarouselCard(imgList: imgList, item: item),
         )
         .toList();
 
@@ -150,11 +136,11 @@ class HomeScreen extends StatelessWidget {
                           height: 200,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: 5,
+                            itemCount: personalMenuCards.length,
                             itemBuilder: (context, index) {
-                              return const Padding(
+                              return  Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: CardFeature(),
+                                child: personalMenuCards[index],
                               );
                             },
                           ),
@@ -171,6 +157,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
 
 // class HomeScreen extends StatelessWidget {
 //   const HomeScreen({super.key});

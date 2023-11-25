@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 
 class CardFeature extends StatelessWidget {
   const CardFeature({
-    super.key,
+    super.key, required this.title, required this.body, required this.image
   });
+
+  final String title;
+  final String body;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -26,24 +30,21 @@ class CardFeature extends StatelessWidget {
             child: Container(
               width: 120,
               height: 100,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(8), topRight: Radius.circular(8)),
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: NetworkImage(
-                    'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=843&q=80',
-                  ),
+                  image: NetworkImage(image),
                 ),
               ),
             ),
           ),
-          const Text(
-            "Header Text",
+          Text(title,
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
-          const Text(
-            "Body Text",
+          Text(
+            body,
             style: TextStyle(),
           )
         ],
