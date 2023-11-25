@@ -4,6 +4,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:frontend/widgets/card_feature.dart';
 import 'package:frontend/widgets/custom_appbar.dart';
 import 'package:frontend/widgets/custom_bottombar.dart';
+import 'package:frontend/widgets/follow_restau.dart';
+import 'package:frontend/widgets/personalmenu_card.dart';
+import 'package:frontend/widgets/saved_meals.dart';
 
 import 'carousel_card.dart';
 
@@ -114,44 +117,9 @@ class HomeScreen extends StatelessWidget {
                   // const SizedBox(
                   //     height:
                   //         20), //space between search bar and personal menu row
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Personal Menu',
-                          // Replace with your desired text style
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        Text(
-                          'View All',
-                          // Replace with your desired text style
-                          style: TextStyle(fontSize: 15),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: SizedBox(
-                          width: double.infinity,
-                          height: 200,
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: personalMenuCards.length,
-                            itemBuilder: (context, index) {
-                              return  Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: personalMenuCards[index],
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  PersonalMenu(),
+                  FollowedRestaurants(),
+                  SavedMeals()
                 ],
               ),
             ],
