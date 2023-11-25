@@ -6,6 +6,7 @@ import '/widgets/widgets.dart';
 
 void main() {
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: const HomeScreen(),
     routes: {
       '/home': (context) => const HomeScreen(),
