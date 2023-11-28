@@ -57,6 +57,7 @@ class PersonalMenu extends StatelessWidget {
                     // Replace with your desired text style
                     style: TextStyle(fontSize: 18),
                   ),
+                  const SizedBox(width: 100),
                   Text(
                     'View All',
                     // Replace with your desired text style

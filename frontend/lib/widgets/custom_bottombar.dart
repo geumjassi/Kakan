@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:frontend/screens/shuffled_item/shuffled_item_display.dart';
 
 class CustomBottomAppBar extends StatelessWidget {
   const CustomBottomAppBar({
@@ -20,6 +21,11 @@ class CustomBottomAppBar extends StatelessWidget {
                     onPressed: () {}),
                 ElevatedButton(
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ShuffledItemDisplay()),
+                    );
                     // Add the function to be executed when the button is pressed
                   },
                   style: ElevatedButton.styleFrom(

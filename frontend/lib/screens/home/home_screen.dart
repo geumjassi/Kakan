@@ -30,7 +30,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final List<String> imgList = [
       'https://images.unsplash.com/photo-1658713064117-51f51ecfaf69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       'https://images.unsplash.com/photo-1658713064971-5fcef7dfe417?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
@@ -40,11 +39,31 @@ class HomeScreen extends StatelessWidget {
     ];
 
     final List<CarouselCard> featured = [
-      CarouselCard(image: imgList[0], price: "P109.00", menu: "Pork Sisig", store: "Kitchen Garage"),
-      CarouselCard(image: imgList[1], price: "P109.00", menu: "Pork Sisig", store: "Kitchen Garage"),
-      CarouselCard(image: imgList[2], price: "P109.00", menu: "Pork Sisig", store: "Kitchen Garage"),
-      CarouselCard(image: imgList[3], price: "P109.00", menu: "Pork Sisig", store: "Kitchen Garage"),
-      CarouselCard(image: imgList[4], price: "P109.00", menu: "Pork Sisig", store: "Kitchen Garage"),
+      CarouselCard(
+          image: imgList[0],
+          price: "P109.00",
+          menu: "Pork Sisig",
+          store: "Kitchen Garage"),
+      CarouselCard(
+          image: imgList[1],
+          price: "P109.00",
+          menu: "Pork Sisig",
+          store: "Kitchen Garage"),
+      CarouselCard(
+          image: imgList[2],
+          price: "P109.00",
+          menu: "Pork Sisig",
+          store: "Kitchen Garage"),
+      CarouselCard(
+          image: imgList[3],
+          price: "P109.00",
+          menu: "Pork Sisig",
+          store: "Kitchen Garage"),
+      CarouselCard(
+          image: imgList[4],
+          price: "P109.00",
+          menu: "Pork Sisig",
+          store: "Kitchen Garage"),
     ];
 
     final List<CardFeature> personalMenuCards = [
@@ -82,10 +101,8 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Column(
-            // mainAxisSize: MainAxisSize.min,
             children: [
               Column(
-                // crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Stack(
                     children: [
@@ -98,25 +115,64 @@ class HomeScreen extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          SizedBox(height: MediaQuery.of(context).size.height * 0.08),
+                          SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.08),
                           CarouselSlider(
                             options: CarouselOptions(
-                              height: MediaQuery.of(context).size.height * 0.3,
+                              height: MediaQuery.of(context).size.height * 0.4,
                               autoPlay: true,
-                              aspectRatio: 2.0,
+                              viewportFraction: 0.5,
+                              aspectRatio: 5.0,
                               enlargeCenterPage: true,
                               enlargeStrategy: CenterPageEnlargeStrategy.height,
                             ),
                             items: featured,
                           ),
+                          const SizedBox(
+                              height:
+                                  40), //space between search bar and CAROUSEL
                           //SearchBar
+                          Container(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 20.0),
+                            child: Center(
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.8,
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white,
+                                    labelText: 'Search',
+                                    hintText: 'Search...',
+                                    prefixIcon: Icon(
+                                      Icons.search,
+                                      color: Colors.orange[600],
+                                    ),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      borderSide: const BorderSide(
+                                        color: Colors
+                                            .white, // Set the border color here
+                                        width: 2.0, // Set the border width here
+                                      ),
+                                    ),
+                                  ),
+                                  // Handle onChanged or onSubmitted as needed
+                                  // onChanged: (value) {
+                                  //   // Do something when the text changes
+                                  // },
+                                  // onSubmitted: (value) {
+                                  //   // Do something when the user submits the text
+                                  // },
+                                ),
+                              ),
+                            ),
+                          )
                         ],
                       ),
                     ],
                   ),
-                  // const SizedBox(
-                  //     height:
-                  //         20), //space between search bar and personal menu row
                   PersonalMenu(),
                   FollowedRestaurants(),
                   SavedMeals()
