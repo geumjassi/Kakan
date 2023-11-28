@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ShuffledItemDisplay extends StatelessWidget {
-  const ShuffledItemDisplay({super.key});
+  const ShuffledItemDisplay({super.key, required this.image, required this.menu, required this.store});
 
+  final String image;
+  final String menu;
+  final String store;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,23 +18,28 @@ class ShuffledItemDisplay extends StatelessWidget {
           ClipPath(
             clipper: ClipPathClipper(),
             child: Container(
-              color: Colors.blue,
               height: 400,
-              child: const Center(
-                child: Text('Content'),
-              ),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(image),
+                ),
+              )
             ),
           ),
           //
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(8.0),
             child: Column(
               children: [
                 Row(
-                  children: [Text("menu title")],
+                  children: [
+                    Text(menu)],
                 ),
                 Row(
-                  children: [Text("Restaurant")],
+                  children: [
+                    Text(store),
+                  ],
                 )
               ],
             ),

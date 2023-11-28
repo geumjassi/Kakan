@@ -97,7 +97,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: const CustomAppBar(),
       extendBodyBehindAppBar: true,
-      bottomNavigationBar: const CustomBottomAppBar(),
+      bottomNavigationBar: CustomBottomAppBar(cards: featured,),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
