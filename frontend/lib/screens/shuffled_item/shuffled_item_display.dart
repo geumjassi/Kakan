@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ShuffledItemDisplay extends StatelessWidget {
-  const ShuffledItemDisplay({super.key, required this.image, required this.menu, required this.store});
+  const ShuffledItemDisplay(
+      {super.key,
+      required this.image,
+      required this.menu,
+      required this.store});
 
   final String image;
   final String menu;
@@ -12,29 +16,33 @@ class ShuffledItemDisplay extends StatelessWidget {
       // appBar: AppBar(
       //   title: Text('Curved Divider'),
       // ),
-      body: Column(
+      body: Stack(
         children: [
           // Image container
-          ClipPath(
-            clipper: ClipPathClipper(),
-            child: Container(
-              height: 400,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(image),
-                ),
-              )
-            ),
+          Column(
+            children: [
+              ClipPath(
+                clipper: ClipPathClipper(),
+                child: Container(
+                    height: 500,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(image),
+                      ),
+                    )),
+              ),
+            ],
           ),
           //
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Column(
+          Positioned(
+            top: 350,
+            left: 20,
+            child: Container(
+                child: Column(
               children: [
                 Row(
-                  children: [
-                    Text(menu)],
+                  children: [Text(menu)],
                 ),
                 Row(
                   children: [
@@ -42,7 +50,7 @@ class ShuffledItemDisplay extends StatelessWidget {
                   ],
                 )
               ],
-            ),
+            )),
           )
         ],
       ),
