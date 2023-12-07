@@ -67,6 +67,16 @@ flutter:
      - family:  KakanLogo
        fonts:
         - asset: assets/KakanLogo.ttf
+     - family: Montserrat
+       fonts:
+        - asset: fonts/Montserrat-BoldItalic.ttf
+        - asset: fonts/Montserrat-Medium.ttf
+        - asset: fonts/Montserrat-Regular.ttf
+        - asset: fonts/Montserrat-Thin.ttf
+        - asset: fonts/Montserrat-Bold.ttf
+          weight: 400
+
+      
 
 
   # To add assets to your application, add an assets section, like this:

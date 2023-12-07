@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
@@ -11,7 +12,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.transparent,
       elevation: 0,
       iconTheme: const IconThemeData(color: Colors.white),
-      title: const Text("Kakan"),
+      title: SvgPicture.asset('images/Header Logo.svg'),
+
       // leading: IconButton(
       //   icon: const Icon(Icons.menu, size: 32), // Icon on the left side
 
@@ -21,8 +23,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       // ),
       actions: [
         IconButton(
-            icon:
-                const Icon(Icons.account_circle, size: 32, color: Colors.white),
+            icon: const Icon(Icons.menu, size: 32, color: Colors.white),
             onPressed: () {})
       ],
     );

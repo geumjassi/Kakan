@@ -95,9 +95,8 @@ class HomeScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(),
       extendBodyBehindAppBar: true,
-      bottomNavigationBar: CustomBottomAppBar(cards: featured,),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -116,46 +115,60 @@ class HomeScreen extends StatelessWidget {
                       Column(
                         children: [
                           SizedBox(
-                              height:
-                                  MediaQuery.of(context).size.height * 0.08),
+                            height: MediaQuery.of(context).size.height * 0.10,
+                          ),
                           CarouselSlider(
                             options: CarouselOptions(
                               height: MediaQuery.of(context).size.height * 0.4,
                               autoPlay: true,
-                              viewportFraction: 0.5,
-                              aspectRatio: 5.0,
+                              viewportFraction: 0.6,
+                              aspectRatio: 0.0,
                               enlargeCenterPage: true,
-                              enlargeStrategy: CenterPageEnlargeStrategy.height,
+                              // enlargeStrategy: CenterPageEnlargeStrategy.height,
                             ),
                             items: featured,
                           ),
                           const SizedBox(
                               height:
-                                  40), //space between search bar and CAROUSEL
+                                  15), //space between search bar and CAROUSEL
                           //SearchBar
                           Container(
                             padding:
-                                const EdgeInsets.symmetric(horizontal: 20.0),
+                                const EdgeInsets.symmetric(horizontal: 10.0),
                             child: Center(
                               child: Container(
-                                width: MediaQuery.of(context).size.width * 0.8,
+                                width: MediaQuery.of(context).size.width * 0.9,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey
+                                          .withOpacity(0.5), // Shadow color
+                                      spreadRadius: 2, // Spread radius
+                                      blurRadius: 4, // Blur radius
+                                      offset: Offset(
+                                          0, 2), // Offset in the x, y direction
+                                    ),
+                                  ],
+                                ),
                                 child: TextField(
+                                  style: TextStyle(
+                                      // fontSize: 8.0,
+                                      height: 1.0,
+                                      color: Colors.black),
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor: Colors.white,
                                     labelText: 'Search',
                                     hintText: 'Search...',
-                                    prefixIcon: Icon(
+                                    prefixIcon: const Icon(
                                       Icons.search,
-                                      color: Colors.orange[600],
+                                      color: Color.fromRGBO(254, 114, 76, 1),
                                     ),
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10.0),
                                       borderSide: const BorderSide(
-                                        color: Colors
-                                            .white, // Set the border color here
-                                        width: 2.0, // Set the border width here
-                                      ),
+                                          width: 0.0, style: BorderStyle.none),
                                     ),
                                   ),
                                   // Handle onChanged or onSubmitted as needed
@@ -173,7 +186,9 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  PersonalMenu(),
+                  Container(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: PersonalMenu()),
                   FollowedRestaurants(),
                   SavedMeals()
                 ],
@@ -182,6 +197,61 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+      extendBody: true,
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {},
+      //   // shape: const RoundedRectangleBorder(
+      //   //     borderRadius: BorderRadius.all(Radius.circular(15.0))),
+      //   child: const Icon(Icons.shuffle),
+      // ),
+      // floatingActionButtonLocation:
+      //     FloatingActionButtonLocation.miniCenterDocked,
+      bottomNavigationBar: Container(
+        height: 60,
+        child: const BottomAppBar(
+          elevation: 10,
+          notchMargin: 7,
+          color: Colors.white,
+          shape: AutomaticNotchedShape(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(
+                top: Radius.circular(15),
+              ),
+            ),
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+          ),
+          child: SizedBox(
+            width: double.infinity,
+            height: 60,
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton.extended(
+        label: const Row(
+          children: [
+             Text(
+              'Shuffle',
+              style: TextStyle(color: Colors.white, fontFamily: 'Montserrat'),
+            ),
+            Icon(
+              Icons.shuffle,
+              color: Colors.white,
+            ),
+          ],
+        ),
+        icon: Container(),
+        backgroundColor: Color.fromRGBO(254, 114, 76, 1),
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(17))),
+        onPressed: () {},
+      ),
+
+      // CustomBottomAppBar(
+      //   cards: featured,
+      // ),
     );
   }
 }

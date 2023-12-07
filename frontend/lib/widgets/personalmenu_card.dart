@@ -55,13 +55,13 @@ class PersonalMenu extends StatelessWidget {
                   Text(
                     'Personal Menu',
                     // Replace with your desired text style
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 18, fontFamily: 'Montserrat'),
                   ),
                   const SizedBox(width: 100),
                   Text(
                     'View All',
                     // Replace with your desired text style
-                    style: TextStyle(fontSize: 15),
+                    style: TextStyle(fontSize: 15, fontFamily: 'Montserrat'),
                   ),
                 ],
               ),
@@ -73,7 +73,7 @@ class PersonalMenu extends StatelessWidget {
             Expanded(
               child: SizedBox(
                 width: double.infinity,
-                height: 200,
+                height: 250,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: personalMenuCards.length,

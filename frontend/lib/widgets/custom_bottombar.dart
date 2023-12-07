@@ -6,9 +6,7 @@ import 'package:frontend/screens/home/carousel_card.dart';
 import 'package:frontend/screens/shuffled_item/shuffled_item_display.dart';
 
 class CustomBottomAppBar extends StatelessWidget {
-  const CustomBottomAppBar({
-    super.key, required this.cards
-  });
+  const CustomBottomAppBar({super.key, required this.cards});
 
   final List<CarouselCard> cards;
 
@@ -30,11 +28,11 @@ class CustomBottomAppBar extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ShuffledItemDisplay(
-                            image: cards[randomIndex].image,
-                            menu: cards[randomIndex].menu,
-                            store: cards[randomIndex].store,
-                          ),
+                        builder: (context) => ShuffledItemDisplay(
+                          image: cards[randomIndex].image,
+                          menu: cards[randomIndex].menu,
+                          store: cards[randomIndex].store,
+                        ),
                       ),
                     );
                     // Add the function to be executed when the button is pressed

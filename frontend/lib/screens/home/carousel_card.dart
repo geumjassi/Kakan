@@ -43,15 +43,18 @@ class CarouselCard extends StatelessWidget {
                   margin: const EdgeInsets.only(bottom: 10),
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                        topRight: Radius.circular(15)),
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15),
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
+                    ),
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: NetworkImage(image),
                     ),
                   ),
                   // color: Colors.black,
-                  height: 150,
+                  height: 180,
                   width: MediaQuery.of(context).size.width * 0.8,
                 ),
                 Container(
@@ -73,6 +76,7 @@ class CarouselCard extends StatelessWidget {
                 Text(
                   "Pork Sisig",
                   style: TextStyle(
+                      fontFamily: 'Montserrat',
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                       color: Colors.black),
