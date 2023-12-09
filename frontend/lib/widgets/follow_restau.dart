@@ -50,18 +50,28 @@ class FollowedRestaurants extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(
-                    'Followed Restaurants',
-                    // Replace with your desired text style
-                    style: TextStyle(fontSize: 18, fontFamily: 'Montserrat'),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Text(
+                      'Restaurants You Follow',
+                      // Replace with your desired text style
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
-                  const SizedBox(width: 100),
+                  const SizedBox(width: 40),
                   Text(
-                    'View All',
+                    'See More >',
                     // Replace with your desired text style
-                    style: TextStyle(fontSize: 15, fontFamily: 'Montserrat'),
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromRGBO(254, 114, 76, 1)),
                   ),
                 ],
               ),
@@ -81,7 +91,8 @@ class FollowedRestaurants extends StatelessWidget {
                     // final title = followedRestaurantCards[index];
                     // final body = followedRestaurantCards[index];
                     return Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding:
+                          EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
                       child: followedRestaurantCards[index],
                     );
                   },

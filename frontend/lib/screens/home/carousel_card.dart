@@ -64,7 +64,7 @@ class CarouselCard extends StatelessWidget {
                     color: Colors.white,
                   ),
                   padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-                  child: Text("P109.00"),
+                  child: Text(price),
                 )
               ],
             ),
@@ -72,9 +72,10 @@ class CarouselCard extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(left: 10),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Pork Sisig",
+                  menu,
                   style: TextStyle(
                       fontFamily: 'Montserrat',
                       fontWeight: FontWeight.bold,
@@ -85,7 +86,11 @@ class CarouselCard extends StatelessWidget {
                 SizedBox(
                   height: 5,
                 ),
-                Text("Kitchen Garage"),
+                Text(
+                  store,
+                  style: TextStyle(fontFamily: 'Montserrat', fontSize: 18),
+                  textAlign: TextAlign.left,
+                ),
               ],
             ),
           ),

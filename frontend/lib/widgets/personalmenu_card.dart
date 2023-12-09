@@ -59,18 +59,28 @@ class _PersonalMenuState extends State<PersonalMenu> {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(
-                    'Personal Menu',
-                    // Replace with your desired text style
-                    style: TextStyle(fontSize: 18, fontFamily: 'Montserrat'),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Text(
+                      'Personal Menu',
+                      // Replace with your desired text style
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                   const SizedBox(width: 100),
                   Text(
-                    'View All',
+                    'See More >',
                     // Replace with your desired text style
-                    style: TextStyle(fontSize: 15, fontFamily: 'Montserrat'),
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromRGBO(254, 114, 76, 1)),
                   ),
                 ],
               ),
@@ -88,7 +98,8 @@ class _PersonalMenuState extends State<PersonalMenu> {
                   itemCount: personalMenuCards.length,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding:
+                          EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
                       child: Container(
                         width: MediaQuery.of(context).size.width * 0.6,
                         // Wrap the CardFeature within Stack to position additional content

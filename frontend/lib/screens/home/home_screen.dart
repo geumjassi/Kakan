@@ -41,29 +41,29 @@ class HomeScreen extends StatelessWidget {
     final List<CarouselCard> featured = [
       CarouselCard(
           image: imgList[0],
-          price: "P109.00",
+          price: "P145.00",
           menu: "Pork Sisig",
-          store: "Kitchen Garage"),
+          store: "Western Plate"),
       CarouselCard(
           image: imgList[1],
-          price: "P109.00",
-          menu: "Pork Sisig",
-          store: "Kitchen Garage"),
+          price: "P120.00",
+          menu: "Kare-Kare",
+          store: "Geewan"),
       CarouselCard(
           image: imgList[2],
-          price: "P109.00",
-          menu: "Pork Sisig",
-          store: "Kitchen Garage"),
+          price: "P350.00",
+          menu: "Ramen",
+          store: "Ichiban Ramen"),
       CarouselCard(
           image: imgList[3],
-          price: "P109.00",
-          menu: "Pork Sisig",
-          store: "Kitchen Garage"),
+          price: "P168.00",
+          menu: "Garlic Cheese Pizza",
+          store: "Sgimirita Pizza"),
       CarouselCard(
           image: imgList[4],
-          price: "P109.00",
-          menu: "Pork Sisig",
-          store: "Kitchen Garage"),
+          price: "P40.00",
+          menu: "Ice Cream",
+          store: "7-Eleven"),
     ];
 
     final List<CardFeature> personalMenuCards = [
@@ -186,6 +186,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 15),
                   Container(
                       padding: const EdgeInsets.only(left: 10.0),
                       child: PersonalMenu()),
@@ -211,12 +212,14 @@ class HomeScreen extends StatelessWidget {
       // floatingActionButtonLocation:
       //     FloatingActionButtonLocation.miniCenterDocked,
       bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+            boxShadow: [BoxShadow(color: Colors.black54, blurRadius: 80)]),
         height: 60,
-        child: const BottomAppBar(
+        child: BottomAppBar(
           elevation: 10,
           notchMargin: 7,
           color: Colors.white,
-          shape: AutomaticNotchedShape(
+          shape: const AutomaticNotchedShape(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
                 top: Radius.circular(15),
@@ -226,12 +229,48 @@ class HomeScreen extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
           ),
-          child: SizedBox(
-            width: double.infinity,
-            height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 100.0),
+                child: IconButton(
+                  icon: SvgPicture.asset('images/heart.svg',
+                      height: 50, width: 50, fit: BoxFit.scaleDown),
+                  onPressed: () {},
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 100.0),
+                child: IconButton(
+                  icon: SvgPicture.asset('images/addbutton.svg',
+                      height: 50, width: 50, fit: BoxFit.scaleDown),
+                  onPressed: () {},
+                ),
+              )
+            ],
           ),
+          // child:
+          // SizedBox(
+          //     width: double.infinity,
+          //     height: 60,
+          //     child: Row(
+          //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //       children: [
+          //         IconButton(
+          //           icon: SvgPicture.asset('hearticon.svg'),
+          //           onPressed: () {},
+          //         ),
+          //         IconButton(
+          //           icon: SvgPicture.asset('addicon.svg'),
+          //           onPressed: () {},
+          //         )
+          //       ],
+          //     )
+          //     ),
         ),
       ),
+
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton.extended(
         label: const Row(
@@ -259,7 +298,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
 
 // class HomeScreen extends StatelessWidget {
 //   const HomeScreen({super.key});

@@ -28,8 +28,6 @@ class CardFeature extends StatefulWidget {
 }
 
 class _CardFeatureState extends State<CardFeature> {
-  bool _isTap = false;
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -37,7 +35,7 @@ class _CardFeatureState extends State<CardFeature> {
         Container(
             width: MediaQuery.of(context).size.width * 0.6,
             height: 200,
-            margin: const EdgeInsets.all(5.0),
+            margin: const EdgeInsets.all(8.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: Colors.white,
@@ -75,7 +73,7 @@ class _CardFeatureState extends State<CardFeature> {
                           width: MediaQuery.of(context).size.width * 0.6,
                         ),
                         Positioned(
-                          top: 140,
+                          top: 150,
                           left: null,
                           right: null,
                           bottom: null,
@@ -89,7 +87,7 @@ class _CardFeatureState extends State<CardFeature> {
                                   style: const TextStyle(
                                       fontFamily: 'Montserrat',
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 20,
+                                      fontSize: 16,
                                       color: Colors.black),
                                   textAlign: TextAlign.left,
                                 ),
