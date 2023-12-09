@@ -13,10 +13,10 @@ class ShuffledItemDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Curved Divider'),
-      // ),
-      body: Stack(
+      appBar: AppBar(
+        title: Text('Curved Divider'),
+      ),
+      body: Column(
         children: [
           // Image container
           Column(

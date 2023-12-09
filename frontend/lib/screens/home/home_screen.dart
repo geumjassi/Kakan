@@ -189,8 +189,12 @@ class HomeScreen extends StatelessWidget {
                   Container(
                       padding: const EdgeInsets.only(left: 10.0),
                       child: PersonalMenu()),
-                  FollowedRestaurants(),
-                  SavedMeals()
+                  Container(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: FollowedRestaurants()),
+                  Container(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: SavedMeals())
                 ],
               ),
             ],
@@ -232,7 +236,7 @@ class HomeScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         label: const Row(
           children: [
-             Text(
+            Text(
               'Shuffle',
               style: TextStyle(color: Colors.white, fontFamily: 'Montserrat'),
             ),

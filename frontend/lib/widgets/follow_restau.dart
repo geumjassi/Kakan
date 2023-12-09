@@ -2,36 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:frontend/widgets/card_feature.dart';
 
 final List<String> imgList = [
-  'https://images.unsplash.com/photo-1658713064117-51f51ecfaf69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-  'https://images.unsplash.com/photo-1658713064971-5fcef7dfe417?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-  'https://images.unsplash.com/photo-1616070829624-884057de0b29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=600&q=60',
-  'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60',
-  'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60',
+  'https://www.bobmarlin.ph/wp-content/uploads/2015/01/bm-facade-2014.jpg',
+  'https://lh3.googleusercontent.com/p/AF1QipOcDUxwCYztOyAJis3j5ft5u1RAUk4bc4coH5my=s1360-w1360-h1020',
+  'https://lh3.googleusercontent.com/p/AF1QipNPmq-MKnP3fnkOXbmO9e_RH7ju_LqoJQTMRPBW=s1360-w1360-h1020',
+  'https://images.unsplash.com/photo-1682218033121-ac3a5b33b7e0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'https://lh3.googleusercontent.com/p/AF1QipOinEfiski1asFIc7x8dXGS7k2JLdW0KCVHrUcT=s1360-w1360-h1020',
 ];
-final List<CardFeature> personalMenuCards = [
+final List<CardFeature> followedRestaurantCards = [
   CardFeature(
-    title: 'Title 1',
-    body: 'Body 1',
+    title: 'Bob Marlin',
+    body: 'Magsaysay Avenue, Naga City',
     image: imgList[0],
   ),
   CardFeature(
-    title: 'Title 2',
-    body: 'Body 2',
+    title: 'Soledad Restaurant',
+    body: 'La Piazza, Magsaysay Avenue',
     image: imgList[1],
   ),
   CardFeature(
-    title: 'Title 3',
-    body: 'Body 3',
+    title: 'Chef Buster Cuisine',
+    body: 'Blumentritt St, Naga, Camarines Sur',
     image: imgList[2],
   ),
   CardFeature(
-    title: 'Title 4',
-    body: 'Body 4',
+    title: 'Jollibee',
+    body: 'Gen.Luna Street, Naga City',
     image: imgList[3],
   ),
   CardFeature(
-    title: 'Title 5',
-    body: 'Body 5',
+    title: 'The Coffee Table',
+    body: 'ADC Building, Magsaysay Ave, Naga',
     image: imgList[4],
   ),
 ];
@@ -53,14 +53,15 @@ class FollowedRestaurants extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Restaurants You Follow',
+                    'Followed Restaurants',
                     // Replace with your desired text style
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 18, fontFamily: 'Montserrat'),
                   ),
+                  const SizedBox(width: 100),
                   Text(
                     'View All',
                     // Replace with your desired text style
-                    style: TextStyle(fontSize: 15),
+                    style: TextStyle(fontSize: 15, fontFamily: 'Montserrat'),
                   ),
                 ],
               ),
@@ -72,14 +73,16 @@ class FollowedRestaurants extends StatelessWidget {
             Expanded(
               child: SizedBox(
                 width: double.infinity,
-                height: 200,
+                height: 250,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: personalMenuCards.length,
+                  itemCount: followedRestaurantCards.length,
                   itemBuilder: (context, index) {
+                    // final title = followedRestaurantCards[index];
+                    // final body = followedRestaurantCards[index];
                     return Padding(
                       padding: EdgeInsets.all(8.0),
-                      child: personalMenuCards[index],
+                      child: followedRestaurantCards[index],
                     );
                   },
                 ),
