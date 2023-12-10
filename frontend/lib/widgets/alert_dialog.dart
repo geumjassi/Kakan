@@ -77,8 +77,8 @@ class ShuffleAlertDialog extends StatelessWidget {
             ),
 
             Positioned(
-              top: 300,
-              right: 40,
+              top: 280.5,
+              right: 70,
               child: Column(
                 children: [SvgPicture.asset('images/Visit.svg')],
               ),
@@ -86,7 +86,7 @@ class ShuffleAlertDialog extends StatelessWidget {
 
             Positioned(
               top: 335,
-              left: 20,
+              left: 25,
               child: Row(
                 children: [
                   SvgPicture.asset('images/Trailing Icon.svg'),
@@ -95,7 +95,7 @@ class ShuffleAlertDialog extends StatelessWidget {
                           fontFamily: 'Montserrat',
                           color: Color.fromRGBO(254, 114, 76, 1))),
                   SizedBox(
-                    width: 38,
+                    width: 45,
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
