@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:frontend/SavedMealsNotifier.dart';
 import 'package:provider/provider.dart';
 
-import '../data.dart';
 
 // class CardFeature extends StatelessWidget {
 //   const CardFeature(

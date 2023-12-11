@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 // import 'package:frontend/screens/homescreen/homepage.dart';
 import '/screens/screens.dart';
 import '/widgets/widgets.dart';
-import '/data.dart';
 
 void main() {
   runApp(

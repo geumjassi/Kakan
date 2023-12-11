@@ -3,7 +3,6 @@ import 'package:frontend/SavedMealsNotifier.dart';
 import 'package:frontend/widgets/card_feature.dart';
 import 'package:provider/provider.dart';
 
-import '../data.dart';
 
 // final List<String> imgList = [
 //   'https://images.unsplash.com/photo-1658713064117-51f51ecfaf69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
