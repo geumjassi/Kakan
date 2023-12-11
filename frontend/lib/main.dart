@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/widgets/add_photo.dart';
 // import 'package:kakan_app/kakan_logo_icons.dart';
 // import 'package:frontend/screens/homescreen/homepage.dart';
 import '/screens/screens.dart';
@@ -10,7 +11,7 @@ void main() {
     home: const HomeScreen(),
     routes: {
       '/home': (context) => const HomeScreen(),
-      '/add': (context) => const AddScreen(),
+      '/add': (context) => PhotoSelector(),
       '/save': (context) => const SaveScreen(),
     },
   ));
