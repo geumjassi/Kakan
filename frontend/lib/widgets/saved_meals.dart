@@ -8,7 +8,7 @@ final List<String> imgList = [
   'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60',
   'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60',
 ];
-final List<CardFeature> personalMenuCards = [
+final List<CardFeature> savedMealCards = [
   CardFeature(
     title: 'Title 1',
     body: 'Body 1',
@@ -76,11 +76,11 @@ class SavedMeals extends StatelessWidget {
                 height: 250,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: personalMenuCards.length,
+                  itemCount: savedMealCards.length,
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: EdgeInsets.all(8.0),
-                      child: personalMenuCards[index],
+                      child: savedMealCards[index],
                     );
                   },
                 ),

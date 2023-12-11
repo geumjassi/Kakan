@@ -17,17 +17,20 @@ class CardFeature extends StatefulWidget {
     required this.title,
     required this.body,
     required this.image,
+    // required this.isFavorite
   }) : super(key: key);
 
   final String title;
   final String body;
   final String image;
+  // final bool isFavorite;
 
   @override
   _CardFeatureState createState() => _CardFeatureState();
 }
 
 class _CardFeatureState extends State<CardFeature> {
+  bool _isTap = false;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -104,6 +107,54 @@ class _CardFeatureState extends State<CardFeature> {
                     ),
                   ),
                 ])),
+        Positioned(
+          top: 5, // Adjust top position as needed
+          left: 0,
+          right: 0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                margin: const EdgeInsets.only(left: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.white,
+                ),
+                padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+                child: Text("P109.00"),
+              ),
+              // CONTAINER FOR TOP RIGHT
+              Stack(
+                alignment: Alignment.center,
+                fit: StackFit.loose,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                    ),
+                    width: 30,
+                    height: 30,
+                  ),
+                  Center(
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.favorite,
+                        color: _isTap ? Colors.red[400] : Colors.grey,
+                        size: 20,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _isTap = !_isTap;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }

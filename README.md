@@ -11,7 +11,7 @@ Kakan is an app that eliminates the hassle of deciding what and where to eat by 
 ## Developers:
 
 - [**Camela Kim P. Quidip**](https://github.com/geumjassi)
-- [**Philippe Bernard G. Reantaso**] ()
+- [**Philippe Bernard G. Reantaso**](https://github.com/PBReantaso)
 - [**Dean Francis Vargas**](https://github.com/dfvargas23)
 - [**Wahlberg Tristan M. Zenit**](https://github.com/wahlbergzenit)
 
