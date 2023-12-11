@@ -13,26 +13,31 @@ final List<CardFeature> personalMenuCards = [
     title: 'Pork Sisig',
     body: 'Western Plate',
     image: imgList[0],
+    // isFavorite: false,
   ),
   CardFeature(
     title: 'Kare-Kare',
     body: 'Geewan',
     image: imgList[1],
+    // isFavorite: false,
   ),
   CardFeature(
     title: 'Oragon Ramen',
     body: 'Maki Ramen by JPY',
     image: imgList[2],
+    // isFavorite: false,
   ),
   CardFeature(
     title: 'Garlic Cheese Pizza',
     body: 'Sgimirita Pizza',
     image: imgList[3],
+    //  isFavorite: false,
   ),
   CardFeature(
     title: 'Spanish Latte',
     body: 'Daily Joe',
     image: imgList[4],
+    // isFavorite: false,
   ),
 ];
 
@@ -42,8 +47,6 @@ class PersonalMenu extends StatefulWidget {
 }
 
 class _PersonalMenuState extends State<PersonalMenu> {
-  bool _isTap = false;
-
 // class PersonalMenu extends StatelessWidget {
 //   PersonalMenu({
 //     super.key,
@@ -109,57 +112,6 @@ class _PersonalMenuState extends State<PersonalMenu> {
                                 index], // Your existing CardFeature
 
                             // Additional Positioned widget
-                            Positioned(
-                              top: 5, // Adjust top position as needed
-                              left: 0,
-                              right: 0,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    margin: const EdgeInsets.only(left: 10),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      color: Colors.white,
-                                    ),
-                                    padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-                                    child: Text("P109.00"),
-                                  ),
-                                  // CONTAINER FOR TOP RIGHT
-                                  Stack(
-                                    alignment: Alignment.center,
-                                    fit: StackFit.loose,
-                                    children: [
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.white,
-                                        ),
-                                        width: 30,
-                                        height: 30,
-                                      ),
-                                      Center(
-                                        child: IconButton(
-                                          icon: Icon(
-                                            Icons.favorite,
-                                            color: _isTap
-                                                ? Colors.red[400]
-                                                : Colors.grey,
-                                            size: 20,
-                                          ),
-                                          onPressed: () {
-                                            setState(() {
-                                              _isTap = !_isTap;
-                                            });
-                                          },
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
                           ],
                         ),
                       ),

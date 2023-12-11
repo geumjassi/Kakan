@@ -9,24 +9,25 @@ import 'package:frontend/widgets/custom_appbar.dart';
 import 'package:frontend/widgets/custom_bottombar.dart';
 import 'package:frontend/widgets/follow_restau.dart';
 import 'package:frontend/widgets/personalmenu_card.dart';
-// import 'package:frontend/widgets/saved_meals.dart';
+import 'package:frontend/widgets/saved_meals.dart';
+import 'package:frontend/widgets/saved_meals.dart';
 
 import 'carousel_card.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+// void main() {
+//   runApp(const MyApp());
+// }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomeScreen(),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return const MaterialApp(
+//       home: HomeScreen(),
+//     );
+//   }
+// }
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -199,9 +200,8 @@ class HomeScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 10.0),
                       child: FollowedRestaurants()),
                   Container(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    // child: SavedMeals()
-                  )
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: SavedMeals())
                 ],
               ),
             ],
