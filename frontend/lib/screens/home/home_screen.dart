@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:frontend/SavedMealsNotifier.dart';
 import 'package:frontend/widgets/alert_dialog.dart';
 import 'package:frontend/widgets/card_feature.dart';
 import 'package:frontend/widgets/custom_appbar.dart';
@@ -11,6 +12,7 @@ import 'package:frontend/widgets/follow_restau.dart';
 import 'package:frontend/widgets/personalmenu_card.dart';
 import 'package:frontend/widgets/saved_meals.dart';
 import 'package:frontend/widgets/saved_meals.dart';
+import 'package:provider/provider.dart';
 
 import 'carousel_card.dart';
 
@@ -29,10 +31,16 @@ import 'carousel_card.dart';
 //   }
 // }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +79,9 @@ class HomeScreen extends StatelessWidget {
           menu: "Ice Cream",
           store: "7-Eleven"),
     ];
+
+    List<CardFeature> personalMenuCards =
+        Provider.of<SavedMealsNotifier>(context).personalMenuCards;
 
     // final List<CardFeature> personalMenuCards = [
     //   CardFeature(
