@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/SavedMealsNotifier.dart';
+import 'package:provider/provider.dart';
+
 
 // class CardFeature extends StatelessWidget {
 //   const CardFeature(
@@ -12,27 +15,33 @@ import 'package:flutter/material.dart';
 //   final String image;
 
 class CardFeature extends StatefulWidget {
-  const CardFeature({
+  CardFeature({
     Key? key,
     required this.title,
     required this.body,
     required this.image,
-    // required this.isFavorite
+    required this.canBeSaved,
+    required this.isFavorite,
+    this.id = 0,
   }) : super(key: key);
 
   final String title;
   final String body;
   final String image;
-  // final bool isFavorite;
+  final bool canBeSaved;
+  late bool isFavorite;
+  int id;
+
 
   @override
   _CardFeatureState createState() => _CardFeatureState();
+
 }
 
 class _CardFeatureState extends State<CardFeature> {
-  bool _isTap = false;
   @override
   Widget build(BuildContext context) {
+    // bool isTapped = false;
     return Stack(
       children: [
         Container(
@@ -107,7 +116,7 @@ class _CardFeatureState extends State<CardFeature> {
                     ),
                   ),
                 ])),
-        Positioned(
+        widget.canBeSaved ? Positioned(
           top: 5, // Adjust top position as needed
           left: 0,
           right: 0,
@@ -137,24 +146,25 @@ class _CardFeatureState extends State<CardFeature> {
                     height: 30,
                   ),
                   Center(
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.favorite,
-                        color: _isTap ? Colors.red[400] : Colors.grey,
-                        size: 20,
+                    child: Consumer<SavedMealsNotifier> (
+                      builder: (context, savedMealsNotifier, child) =>
+                      IconButton(
+                        icon: Icon(
+                          Icons.favorite,
+                          color: savedMealsNotifier.personalMenuCards[widget.id].isFavorite? Colors.red[400] : Colors.grey,
+                          size: 20,
+                        ),
+                        onPressed: () {
+                          Provider.of<SavedMealsNotifier>(context, listen: false).toggleSavedMeals(widget.id);
+                        }
                       ),
-                      onPressed: () {
-                        setState(() {
-                          _isTap = !_isTap;
-                        });
-                      },
                     ),
                   ),
                 ],
               ),
             ],
           ),
-        ),
+        ): Container(),
       ],
     );
   }
