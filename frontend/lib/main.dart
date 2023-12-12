@@ -8,15 +8,14 @@ import '/screens/screens.dart';
 import '/widgets/widgets.dart';
 
 void main() {
-  runApp(
-      ChangeNotifierProvider(
+  runApp(ChangeNotifierProvider(
     create: (context) => SavedMealsNotifier(),
     child: MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const HomeScreen(),
       routes: {
         '/home': (context) => const HomeScreen(),
-        '/add': (context) => PhotoSelector(),
+        '/add': (context) => const AddItemScreen(),
         '/save': (context) => const SaveScreen(),
       },
     ),
