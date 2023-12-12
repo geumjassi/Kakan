@@ -69,6 +69,9 @@ flutter:
   fonts:
      - family:  KakanLogo
        fonts:
+        - asset: images/image-plus.svg
+        - asset: images/camera-light.svg
+        - asset: images/gallery-add-outline.svg
         - asset: assets/KakanLogo.ttf
      - family: Montserrat
        fonts:
