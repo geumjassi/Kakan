@@ -17,8 +17,8 @@ class CarouselCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.6,
-      height: 100,
+      // width: MediaQuery.of(context).size.width * 0.6,
+      // height: 100,
       margin: const EdgeInsets.all(5.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
@@ -40,6 +40,7 @@ class CarouselCard extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
+                  //image container
                   margin: const EdgeInsets.only(bottom: 10),
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
@@ -57,6 +58,7 @@ class CarouselCard extends StatelessWidget {
                   height: 180,
                   width: MediaQuery.of(context).size.width * 0.8,
                 ),
+                //for tag price
                 Container(
                   margin: const EdgeInsets.only(top: 10, left: 10),
                   decoration: BoxDecoration(
@@ -64,11 +66,22 @@ class CarouselCard extends StatelessWidget {
                     color: Colors.white,
                   ),
                   padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-                  child: Text(price),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Text("P",
+                          style: TextStyle(
+                            color: Color.fromRGBO(254, 114, 76, 1),
+                            fontWeight: FontWeight.bold,
+                          )),
+                      Text(price),
+                    ],
+                  ),
                 )
               ],
             ),
           ),
+          //container for text menu, store
           Container(
             margin: const EdgeInsets.only(left: 10),
             child: Column(
@@ -76,19 +89,20 @@ class CarouselCard extends StatelessWidget {
               children: [
                 Text(
                   menu,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontFamily: 'Montserrat',
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                       color: Colors.black),
                   textAlign: TextAlign.left,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 Text(
                   store,
-                  style: TextStyle(fontFamily: 'Montserrat', fontSize: 18),
+                  style:
+                      const TextStyle(fontFamily: 'Montserrat', fontSize: 18),
                   textAlign: TextAlign.left,
                 ),
               ],

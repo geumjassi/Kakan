@@ -56,27 +56,27 @@ class _HomeScreenState extends State<HomeScreen> {
     final List<CarouselCard> featured = [
       CarouselCard(
           image: imgList[0],
-          price: "P145.00",
+          price: "145.00",
           menu: "Pork Sisig",
           store: "Western Plate"),
       CarouselCard(
           image: imgList[1],
-          price: "P120.00",
+          price: "120.00",
           menu: "Kare-Kare",
           store: "Geewan"),
       CarouselCard(
           image: imgList[2],
-          price: "P350.00",
+          price: "350.00",
           menu: "Ramen",
           store: "Ichiban Ramen"),
       CarouselCard(
           image: imgList[3],
-          price: "P168.00",
+          price: "168.00",
           menu: "Garlic Cheese Pizza",
           store: "Sgimirita Pizza"),
       CarouselCard(
           image: imgList[4],
-          price: "P40.00",
+          price: "40.00",
           menu: "Ice Cream",
           store: "7-Eleven"),
     ];
@@ -127,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Container(
                         child: SvgPicture.asset('images/TopHalfBG.svg',
                             alignment: Alignment.topCenter,
-                            // width: MediaQuery.of(context).size.width,
+                            width: MediaQuery.of(context).size.width,
                             height: MediaQuery.of(context).size.width),
                       ),
                       Column(
@@ -218,7 +218,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: FollowedRestaurants()),
                   Container(
                       padding: const EdgeInsets.only(left: 10.0),
-                      child: SavedMeals())
+                      child: SavedMeals()),
+                  const SizedBox(
+                    height: 50,
+                  ),
                 ],
               ),
             ],
