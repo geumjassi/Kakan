@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:frontend/SavedMealsNotifier.dart';
 import 'package:provider/provider.dart';
 
-
 // class CardFeature extends StatelessWidget {
 //   const CardFeature(
 //       {super.key,
@@ -20,6 +19,7 @@ class CardFeature extends StatefulWidget {
     required this.title,
     required this.body,
     required this.image,
+    required this.price,
     required this.canBeSaved,
     required this.isFavorite,
     this.id = 0,
@@ -28,14 +28,13 @@ class CardFeature extends StatefulWidget {
   final String title;
   final String body;
   final String image;
+  final String price;
   final bool canBeSaved;
   late bool isFavorite;
   int id;
 
-
   @override
   _CardFeatureState createState() => _CardFeatureState();
-
 }
 
 class _CardFeatureState extends State<CardFeature> {
@@ -116,55 +115,71 @@ class _CardFeatureState extends State<CardFeature> {
                     ),
                   ),
                 ])),
-        widget.canBeSaved ? Positioned(
-          top: 5, // Adjust top position as needed
-          left: 0,
-          right: 0,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                margin: const EdgeInsets.only(left: 10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.white,
-                ),
-                padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-                child: Text("P109.00"),
-              ),
-              // CONTAINER FOR TOP RIGHT
-              Stack(
-                alignment: Alignment.center,
-                fit: StackFit.loose,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white,
-                    ),
-                    width: 30,
-                    height: 30,
-                  ),
-                  Center(
-                    child: Consumer<SavedMealsNotifier> (
-                      builder: (context, savedMealsNotifier, child) =>
-                      IconButton(
-                        icon: Icon(
-                          Icons.favorite,
-                          color: savedMealsNotifier.personalMenuCards[widget.id].isFavorite? Colors.red[400] : Colors.grey,
-                          size: 20,
-                        ),
-                        onPressed: () {
-                          Provider.of<SavedMealsNotifier>(context, listen: false).toggleSavedMeals(widget.id);
-                        }
+        widget.canBeSaved
+            ? Positioned(
+                top: 5, // Adjust top position as needed
+                left: 0,
+                right: 0,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(left: 10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.white,
+                      ),
+                      padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+                      child: Row(
+                        children: [
+                          const Text("P",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromRGBO(254, 114, 76, 1),
+                              )),
+                          Text(widget.price),
+                        ],
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ): Container(),
+                    // CONTAINER FOR TOP RIGHT
+                    Stack(
+                      alignment: Alignment.center,
+                      fit: StackFit.loose,
+                      children: [
+                        Container(
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white,
+                          ),
+                          width: 30,
+                          height: 30,
+                        ),
+                        Center(
+                          child: Consumer<SavedMealsNotifier>(
+                            builder: (context, savedMealsNotifier, child) =>
+                                IconButton(
+                                    icon: Icon(
+                                      Icons.favorite,
+                                      color: savedMealsNotifier
+                                              .personalMenuCards[widget.id]
+                                              .isFavorite
+                                          ? Colors.red[400]
+                                          : Colors.grey,
+                                      size: 20,
+                                    ),
+                                    onPressed: () {
+                                      Provider.of<SavedMealsNotifier>(context,
+                                              listen: false)
+                                          .toggleSavedMeals(widget.id);
+                                    }),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              )
+            : Container(),
       ],
     );
   }
