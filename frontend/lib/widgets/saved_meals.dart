@@ -3,6 +3,7 @@ import 'package:frontend/SavedMealsNotifier.dart';
 import 'package:frontend/widgets/card_feature.dart';
 import 'package:provider/provider.dart';
 
+
 // final List<String> imgList = [
 //   'https://images.unsplash.com/photo-1658713064117-51f51ecfaf69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
 //   'https://images.unsplash.com/photo-1658713064971-5fcef7dfe417?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
@@ -38,6 +39,7 @@ import 'package:provider/provider.dart';
 //   ),
 // ];
 
+
 class SavedMeals extends StatefulWidget {
   const SavedMeals({
     super.key,
@@ -48,14 +50,12 @@ class SavedMeals extends StatefulWidget {
 }
 
 class _SavedMealsState extends State<SavedMeals> {
+
   @override
   Widget build(BuildContext context) {
     return Consumer<SavedMealsNotifier>(
         builder: (context, savedMealsNotifier, child) {
-      List<CardFeature> savedMeals = Provider.of<SavedMealsNotifier>(context)
-          .personalMenuCards
-          .where((card) => card.isFavorite == true)
-          .toList();
+      List<CardFeature> savedMeals = Provider.of<SavedMealsNotifier>(context).personalMenuCards.where((card) => card.isFavorite == true).toList();
       // print(savedMealCards[0].isFavorite);
       // List<CardFeature> savedMeals = savedMealsNotifier.savedMeals;
 
@@ -64,62 +64,52 @@ class _SavedMealsState extends State<SavedMeals> {
       //     .toList();
 
       return Column(
-        children: [
-          const Row(
-            children: [
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 10.0),
-                      child: Text(
-                        'Saved Meals',
-                        // Replace with your desired text style
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    const SizedBox(width: 100),
-                    Text(
-                      'See More >',
-                      // Replace with your desired text style
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(254, 114, 76, 1)),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 250,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: savedMeals.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: savedMeals[index],
-                      );
-                    },
+      children: [
+        const Row(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Saved Meals',
+                    // Replace with your desired text style
+                    style: TextStyle(fontSize: 18, fontFamily: 'Montserrat'),
                   ),
+                  const SizedBox(width: 100),
+                  Text(
+                    'View All',
+                    // Replace with your desired text style
+                    style: TextStyle(fontSize: 15, fontFamily: 'Montserrat'),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Expanded(
+              child: SizedBox(
+                width: double.infinity,
+                height: 250,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: savedMeals.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: savedMeals[index],
+                    );
+                  },
                 ),
               ),
-            ],
-          ),
-        ],
-      );
+            ),
+          ],
+        ),
+      ],
+    );
     });
   }
 }

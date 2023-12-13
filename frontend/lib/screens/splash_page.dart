@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/screens/onboarding/onboarding_screen.dart';
 import 'home/home_screen.dart';
 import 'package:frontend/kakan_logo_icons.dart'; // Import Logo
 
@@ -47,8 +46,8 @@ class _SplashPageState extends State<SplashPage>
         } else {
           _controller.stop();
           Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => OnboardingScreenFirst(),
-          ));
+            builder: (context) => HomeScreen(),
+            ));
         }
       } else if (status == AnimationStatus.dismissed) {
         _controller.forward();

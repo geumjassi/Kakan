@@ -12,7 +12,6 @@ final List<CardFeature> followedRestaurantCards = [
   CardFeature(
     title: 'Bob Marlin',
     body: 'Magsaysay Avenue, Naga City',
-    price: '',
     image: imgList[0],
     isFavorite: false,
     canBeSaved: false,
@@ -20,7 +19,6 @@ final List<CardFeature> followedRestaurantCards = [
   CardFeature(
     title: 'Soledad Restaurant',
     body: 'La Piazza, Magsaysay Avenue',
-    price: '',
     image: imgList[1],
     isFavorite: false,
     canBeSaved: false,
@@ -28,7 +26,6 @@ final List<CardFeature> followedRestaurantCards = [
   CardFeature(
     title: 'Chef Buster Cuisine',
     body: 'Blumentritt St, Naga, Camarines Sur',
-    price: '',
     image: imgList[2],
     isFavorite: false,
     canBeSaved: false,
@@ -36,7 +33,6 @@ final List<CardFeature> followedRestaurantCards = [
   CardFeature(
     title: 'Jollibee',
     body: 'Gen.Luna Street, Naga City',
-    price: '',
     image: imgList[3],
     isFavorite: false,
     canBeSaved: false,
@@ -44,7 +40,6 @@ final List<CardFeature> followedRestaurantCards = [
   CardFeature(
     title: 'The Coffee Table',
     body: 'ADC Building, Magsaysay Ave, Naga',
-    price: '',
     image: imgList[4],
     isFavorite: false,
     canBeSaved: false,

@@ -20,62 +20,30 @@ class ShuffleAlertDialog extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: 400,
-        decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(20)),
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: NetworkImage(image),
-            )),
         child: Stack(
           // fit: StackFit.expand,
           alignment: Alignment.center,
           children: [
-            Positioned(
-              top: 180, // Adjust as needed
-              left: 0,
-              right: 0,
-              child: SvgPicture.asset(
-                'images/curved.svg',
-                fit: BoxFit.fill,
-                // width: MediaQuery.of(context).size.width,
-                // height: MediaQuery.of(context).size.height,
+            Container(
+              clipBehavior: Clip.hardEdge,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+                // border: Border.all(color: Colors.green, width: 2.0)
+              ),
+              child: ClipPath(
+                clipper: ClipPathClipper(),
+                child: Container(
+                    decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(21.5),
+                      topRight: Radius.circular(21.5)),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(image),
+                  ),
+                )),
               ),
             ),
-
-            // Stack(
-            //   children: [
-            //     // Container(
-            //     //     decoration: BoxDecoration(
-            //     //         borderRadius: const BorderRadius.only(
-            //     //             topLeft: Radius.circular(21.5),
-            //     //             topRight: Radius.circular(21.5)),
-            //     //         image: DecorationImage(
-            //     //             fit: BoxFit.cover, image: NetworkImage(image)))),
-            //     FittedBox(
-            //         fit: BoxFit.scaleDown,
-            //         child: SvgPicture.asset('images/Union.svg'))
-            //   ],
-            // ),
-            // Container(
-            //   clipBehavior: Clip.hardEdge,
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(20.0),
-            //     // border: Border.all(color: Colors.green, width: 2.0)
-            //   ),
-            //   // child: ClipPath(
-            //   //   clipper: ClipPathClipper(),
-            //   //   child: Container(
-            //   //       decoration: BoxDecoration(
-            //   //     borderRadius: const BorderRadius.only(
-            //   //         topLeft: Radius.circular(21.5),
-            //   //         topRight: Radius.circular(21.5)),
-            //   //     image: DecorationImage(
-            //   //       fit: BoxFit.cover,
-            //   //       image: NetworkImage(image),
-            //   //     ),
-            //   //   )),
-            //   // ),
-            // ),
 
             // top: 350,
             // left: 20,
@@ -83,71 +51,64 @@ class ShuffleAlertDialog extends StatelessWidget {
             Positioned(
               top: 280,
               left: 20,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  Row(
                     children: [
-                      Row(
-                        children: [
-                          Text(menu,
-                              style: const TextStyle(
-                                  fontSize: 20,
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.bold)),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(store,
-                              style: const TextStyle(
-                                fontSize: 18,
-                                fontFamily: 'Montserrat',
-                              )),
-                        ],
-                      ),
+                      Text(menu,
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold)),
                     ],
                   ),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  Column(
-                    children: [SvgPicture.asset('images/Visit.svg')],
+                  Row(
+                    children: [
+                      Text(store,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontFamily: 'Montserrat',
+                          )),
+                    ],
                   ),
                 ],
               ),
             ),
 
             Positioned(
-              top: 350,
-              left: 20,
+              top: 280.5,
+              right: 70,
               child: Column(
+                children: [SvgPicture.asset('images/Visit.svg')],
+              ),
+            ),
+
+            Positioned(
+              top: 335,
+              left: 25,
+              child: Row(
                 children: [
-                  Row(
-                    children: [
-                      SvgPicture.asset('images/Trailing Icon.svg'),
-                      const Text('<> km away...',
-                          style: TextStyle(
-                              fontFamily: 'Montserrat',
-                              color: Color.fromRGBO(254, 114, 76, 1))),
-                      SizedBox(
-                        width: 45,
-                      ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(3.0),
-                            ),
-                            padding: const EdgeInsets.all(8.0),
-                            backgroundColor: HexColor('#FE724C')),
-                        onPressed: () {},
-                        child: const Text(
-                          'Get Directions',
-                          style: TextStyle(color: Colors.white),
+                  SvgPicture.asset('images/Trailing Icon.svg'),
+                  const Text('<> km away...',
+                      style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          color: Color.fromRGBO(254, 114, 76, 1))),
+                  SizedBox(
+                    width: 45,
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(3.0),
                         ),
-                      ),
-                    ],
+                        padding: const EdgeInsets.all(8.0),
+                        backgroundColor: HexColor('#FE724C')),
+                    onPressed: () {},
+                    child: const Text(
+                      'Get Directions',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ],
               ),
@@ -160,43 +121,43 @@ class ShuffleAlertDialog extends StatelessWidget {
   }
 }
 
-// class ClipPathClipper extends CustomClipper<Path> {
-//   @override
-//   Path getClip(Size size) {
-//     double width = size.width;
-//     double height = size.height;
+class ClipPathClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    double width = size.width;
+    double height = size.height;
 
-//     final path = Path();
-//     //(0,0) 1.Point
-//     // path.lineTo(0, height); //2.Point
-//     // path.quadraticBezierTo(
-//     //   width * 0.5, //3.Point --> width * 0.5, height - 100,
-//     //   height - 100,
-//     //   width, //4.Point --> width, height
-//     //   height,
-//     // );
-//     // path.lineTo(width, 0); //5.Point
-//     // path.close();
-//     // Path path_0 = Path();
-//     path.moveTo(0, size.height * 0.0033333);
-//     path.quadraticBezierTo(size.width * 0.0148727, size.height * 0.6094167,
-//         size.width * 0.1018000, size.height * 0.6589333);
-//     path.cubicTo(
-//         size.width * 0.2622455,
-//         size.height * 0.6629667,
-//         size.width * 0.6531182,
-//         size.height * 0.6626958,
-//         size.width * 0.8368909,
-//         size.height * 0.6639500);
-//     path.quadraticBezierTo(size.width * 0.9811455, size.height * 0.6777833,
-//         size.width * 1.0018182, size.height * 0.9950000);
-//     path.lineTo(size.width * 0.9981818, size.height * 0.0050000);
-//     path.close();
-//     return path;
-//   }
+    final path = Path();
+    //(0,0) 1.Point
+    // path.lineTo(0, height); //2.Point
+    // path.quadraticBezierTo(
+    //   width * 0.5, //3.Point --> width * 0.5, height - 100,
+    //   height - 100,
+    //   width, //4.Point --> width, height
+    //   height,
+    // );
+    // path.lineTo(width, 0); //5.Point
+    // path.close();
+    // Path path_0 = Path();
+    path.moveTo(0, size.height * 0.0033333);
+    path.quadraticBezierTo(size.width * 0.0148727, size.height * 0.6094167,
+        size.width * 0.1018000, size.height * 0.6589333);
+    path.cubicTo(
+        size.width * 0.2622455,
+        size.height * 0.6629667,
+        size.width * 0.6531182,
+        size.height * 0.6626958,
+        size.width * 0.8368909,
+        size.height * 0.6639500);
+    path.quadraticBezierTo(size.width * 0.9811455, size.height * 0.6777833,
+        size.width * 1.0018182, size.height * 0.9950000);
+    path.lineTo(size.width * 0.9981818, size.height * 0.0050000);
+    path.close();
+    return path;
+  }
 
-//   @override
-//   bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-//     return false;
-//   }
-// }
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return false;
+  }
+}
