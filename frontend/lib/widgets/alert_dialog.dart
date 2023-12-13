@@ -20,30 +20,46 @@ class ShuffleAlertDialog extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: 400,
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(20)),
+            image:
+                DecorationImage(fit: BoxFit.cover, image: NetworkImage(image))),
         child: Stack(
           // fit: StackFit.expand,
           alignment: Alignment.center,
           children: [
-            Container(
-              clipBehavior: Clip.hardEdge,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                // border: Border.all(color: Colors.green, width: 2.0)
-              ),
-              child: ClipPath(
-                clipper: ClipPathClipper(),
-                child: Container(
-                    decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(21.5),
-                      topRight: Radius.circular(21.5)),
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(image),
-                  ),
-                )),
-              ),
+            Stack(
+              children: [
+                // Container(
+                //     decoration: BoxDecoration(
+                //         borderRadius: const BorderRadius.only(
+                //             topLeft: Radius.circular(21.5),
+                //             topRight: Radius.circular(21.5)),
+                //         image: DecorationImage(
+                //             fit: BoxFit.cover, image: NetworkImage(image)))),
+                SizedBox(child: SvgPicture.asset('images/curved.svg'))
+              ],
             ),
+            // Container(
+            //   clipBehavior: Clip.hardEdge,
+            //   decoration: BoxDecoration(
+            //     borderRadius: BorderRadius.circular(20.0),
+            //     // border: Border.all(color: Colors.green, width: 2.0)
+            //   ),
+            //   // child: ClipPath(
+            //   //   clipper: ClipPathClipper(),
+            //   //   child: Container(
+            //   //       decoration: BoxDecoration(
+            //   //     borderRadius: const BorderRadius.only(
+            //   //         topLeft: Radius.circular(21.5),
+            //   //         topRight: Radius.circular(21.5)),
+            //   //     image: DecorationImage(
+            //   //       fit: BoxFit.cover,
+            //   //       image: NetworkImage(image),
+            //   //     ),
+            //   //   )),
+            //   // ),
+            // ),
 
             // top: 350,
             // left: 20,
@@ -75,10 +91,9 @@ class ShuffleAlertDialog extends StatelessWidget {
                 ],
               ),
             ),
-
             Positioned(
               top: 280.5,
-              right: 70,
+              right: 50,
               child: Column(
                 children: [SvgPicture.asset('images/Visit.svg')],
               ),

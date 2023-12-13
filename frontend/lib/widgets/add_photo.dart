@@ -122,8 +122,8 @@ class _PhotoSelectorState extends State<PhotoSelector> {
               ),
             if (_selectedImage == null)
               Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: Stack(
+                  alignment: Alignment.center,
                   children: [
                     const Positioned(
                       top: -20,
@@ -157,7 +157,7 @@ class _PhotoSelectorState extends State<PhotoSelector> {
                           ),
                           const SizedBox(width: 4),
                           SvgPicture.asset(
-                            'assets/camera-light.svg',
+                            'images/camera-light.svg',
                             width: 24,
                             height: 24,
                             color: const Color(0xFFFE724C),
