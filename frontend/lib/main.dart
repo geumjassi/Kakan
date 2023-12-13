@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/SavedMealsNotifier.dart';
+import 'package:frontend/screens/splash_page.dart';
 import 'package:frontend/widgets/add_photo.dart';
 import 'package:provider/provider.dart';
 // import 'package:kakan_app/kakan_logo_icons.dart';
@@ -12,7 +13,7 @@ void main() {
     create: (context) => SavedMealsNotifier(),
     child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      home: const SplashPage(),
       routes: {
         '/home': (context) => const HomeScreen(),
         '/add': (context) => const AddItemScreen(),
