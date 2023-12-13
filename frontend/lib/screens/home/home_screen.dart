@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:frontend/SavedMealsNotifier.dart';
+import 'package:frontend/screens/add_items/add_items_screen.dart';
 import 'package:frontend/widgets/alert_dialog.dart';
 import 'package:frontend/widgets/card_feature.dart';
 import 'package:frontend/widgets/custom_appbar.dart';
@@ -41,7 +42,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
+  bool _isSearchBarUsed = false;
   @override
   Widget build(BuildContext context) {
     final List<String> imgList = [
@@ -195,6 +196,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                   // onSubmitted: (value) {
                                   //   // Do something when the user submits the text
                                   // },
+                                  onTap: () {
+                                    setState(() {
+                                      _isSearchBarUsed = true;
+                                    });
+                                  },
                                 ),
                               ),
                             ),
@@ -254,7 +260,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: IconButton(
                   icon: SvgPicture.asset('images/addbutton.svg',
                       height: 50, width: 50, fit: BoxFit.scaleDown),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AddItemScreen()),
+                    );
+                  },
                 ),
               )
             ],
@@ -262,33 +274,36 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton.extended(
-        label: const Row(
-          children: [
-            Text(
-              'Shuffle',
-              style: TextStyle(color: Colors.white, fontFamily: 'Montserrat'),
-            ),
-            Icon(
-              Icons.shuffle,
-              color: Colors.white,
-            ),
-          ],
+      floatingActionButton: Visibility(
+        visible: !_isSearchBarUsed,
+        child: FloatingActionButton.extended(
+          label: const Row(
+            children: [
+              Text(
+                'Shuffle',
+                style: TextStyle(color: Colors.white, fontFamily: 'Montserrat'),
+              ),
+              Icon(
+                Icons.shuffle,
+                color: Colors.white,
+              ),
+            ],
+          ),
+          icon: Container(),
+          backgroundColor: Color.fromRGBO(254, 114, 76, 1),
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(17))),
+          onPressed: () {
+            int randomIndex = Random().nextInt(personalMenuCards.length);
+            showDialog(
+                context: context,
+                builder: (ctxt) => ShuffleAlertDialog(
+                      image: personalMenuCards[randomIndex].image,
+                      menu: personalMenuCards[randomIndex].title,
+                      store: personalMenuCards[randomIndex].body,
+                    ));
+          },
         ),
-        icon: Container(),
-        backgroundColor: Color.fromRGBO(254, 114, 76, 1),
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(17))),
-        onPressed: () {
-          int randomIndex = Random().nextInt(personalMenuCards.length);
-          showDialog(
-              context: context,
-              builder: (ctxt) => ShuffleAlertDialog(
-                    image: personalMenuCards[randomIndex].image,
-                    menu: personalMenuCards[randomIndex].title,
-                    store: personalMenuCards[randomIndex].body,
-                  ));
-        },
       ),
     );
   }
