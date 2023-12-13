@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kakan_app/kakan_logo_icons.dart';
-import 'package:kakan_app/screens/splash/splash_page.dart';
+import 'package:frontend/kakan_logo_icons.dart';
+import 'package:frontend/screens/splash_page.dart';
+// import 'package:kakan_app/kakan_logo_icons.dart';
+// import 'package:kakan_app/screens/splash/splash_page.dart';
 
 class OnboardingScreenFirst extends StatelessWidget {
   const OnboardingScreenFirst({Key? key}) : super(key: key);
