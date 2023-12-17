@@ -83,7 +83,7 @@ class _SavedMealsState extends State<SavedMeals> {
                             fontWeight: FontWeight.bold),
                       ),
                     ),
-                    const SizedBox(width: 100),
+                    // const SizedBox(width: 100),
                     // Text(
                     //   'See More >',
                     //   // Replace with your desired text style

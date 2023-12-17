@@ -16,7 +16,12 @@ class _SavedScreenState extends State<SaveScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Saved Meals'),
+        title: const Text(
+          'Saved Meals',
+          style: TextStyle(
+            fontFamily: 'Montserrat',
+          ),
+        ),
       ),
       body: Consumer<SavedMealsNotifier>(
         builder: (context, savedMealsNotifier, child) {
@@ -38,77 +43,95 @@ Widget buildSavedMealsList(List<CardFeature> savedMeals) {
   return ListView.builder(
     itemCount: savedMeals.length, // +1 for the header
     itemBuilder: (context, index) {
-      // if (index == 0) {
-      //   return Padding(
-      //     padding: const EdgeInsets.all(8.0),
-      //     child: Text(
-      //       'Saved Meals',
-      //       style: TextStyle(
-      //         fontSize: 24,
-      //         fontFamily: 'Montserrat',
-      //         fontWeight: FontWeight.bold,
-      //         color: Colors.black,
-      //       ),
-      //     ),
-      //   );
-      // }
-
       final CardFeature card =
           savedMeals[index]; // Adjust index to account for the header
-      return Container(
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(15),
-            topRight: Radius.circular(15),
-            bottomLeft: Radius.circular(15),
-            bottomRight: Radius.circular(15),
-          ),
-        ),
-        height: 120,
-        child: Card(
-          child: Row(
-            children: <Widget>[
-              SizedBox(
-                width: 80, // Adjust the width of the image container
-                height: double.infinity,
-                child: Image.network(
-                  card.image,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        card.title,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
+      return Padding(
+        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+        child: Container(
+          // color: Colors.white,
+          // decoration: BoxDecoration(
+          //   borderRadius: BorderRadius.circular(15),
+          //   color: Colors.white,
+          //   boxShadow: [
+          //     BoxShadow(
+          //       color: Colors.black.withOpacity(0.2),
+          //       offset: const Offset(2, 1),
+          //       blurRadius: 4,
+          //     )
+          //   ],
+          // ),
+          height: 120,
+          child: Container(
+            // decoration: const BoxDecoration(color: Colors.white),
+            child: Card(
+              color: Colors.white,
+              elevation: 4,
+              child: Row(
+                children: <Widget>[
+                  //container for image
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: SizedBox(
+                      width: 120, // Adjust the width of the image container
+                      height: double.infinity,
+                      child: Image.network(
+                        card.image,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Container(
+                        // color: Colors.white,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              card.title,
+                              style: const TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 4),
+                            Text(
+                              card.body,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontSize: 16,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      SizedBox(height: 4),
-                      Text(
-                        card.body,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ],
+                    ),
                   ),
-                ),
+                  Container(
+                    // color: Colors.white,
+                    child: IconButton(
+                      icon: Icon(
+                        card.isFavorite
+                            ? Icons.favorite
+                            : Icons.favorite_border,
+                        color: card.isFavorite ? Colors.red : null,
+                      ),
+                      onPressed: () {
+                        Provider.of<SavedMealsNotifier>(context, listen: false)
+                            .toggleSavedMeals(card.id);
+                      },
+                    ),
+                  ),
+                ],
               ),
-              IconButton(
-                icon: Icon(
-                  card.isFavorite ? Icons.favorite : Icons.favorite_border,
-                  color: card.isFavorite ? Colors.red : null,
-                ),
-                onPressed: () {
-                  // Handle onPressed action
-                },
-              ),
-            ],
+            ),
           ),
         ),
       );
@@ -122,14 +145,17 @@ Widget buildEmptyList(BuildContext context) {
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       Center(
-        child: Container(
-          constraints: BoxConstraints(
-            maxWidth: MediaQuery.of(context).size.width,
-            maxHeight: MediaQuery.of(context).size.height * 0.4,
-          ),
-          child: SvgPicture.asset(
-            'images/emptystate.svg',
-            fit: BoxFit.contain,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            constraints: BoxConstraints(
+              maxWidth: MediaQuery.of(context).size.width,
+              maxHeight: MediaQuery.of(context).size.height * 0.4,
+            ),
+            child: SvgPicture.asset(
+              'images/emptystate.svg',
+              fit: BoxFit.contain,
+            ),
           ),
         ),
       ),
@@ -143,6 +169,7 @@ Widget buildEmptyList(BuildContext context) {
               style: TextStyle(
                 fontFamily: 'Montserrat',
                 fontSize: 16,
+                fontWeight: FontWeight.bold,
               ),
             ),
             Text(
