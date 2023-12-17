@@ -3,7 +3,6 @@ import 'package:frontend/SavedMealsNotifier.dart';
 import 'package:frontend/widgets/card_feature.dart';
 import 'package:provider/provider.dart';
 
-
 // final List<String> imgList = [
 //   'https://images.unsplash.com/photo-1658713064117-51f51ecfaf69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
 //   'https://images.unsplash.com/photo-1658713064971-5fcef7dfe417?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
@@ -60,7 +59,9 @@ class _PersonalMenuState extends State<PersonalMenu> {
   Widget build(BuildContext context) {
     List<CardFeature> personalMenuCards =
         Provider.of<SavedMealsNotifier>(context).personalMenuCards;
-      return Column(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisSize: MainAxisSize.min,
       children: [
         const Row(
           children: [
@@ -113,7 +114,8 @@ class _PersonalMenuState extends State<PersonalMenu> {
                         // Wrap the CardFeature within Stack to position additional content
                         child: Stack(
                           children: [
-                            personalMenuCards[index], // Your existing CardFeature
+                            personalMenuCards[
+                                index], // Your existing CardFeature
                             // Additional Positioned widget
                           ],
                         ),
@@ -125,27 +127,6 @@ class _PersonalMenuState extends State<PersonalMenu> {
             ),
           ],
         ),
-
-        // Row(
-        //   children: [
-        //     Expanded(
-        //       child: SizedBox(
-        //         width: double.infinity,
-        //         height: 250,
-        //         child: ListView.builder(
-        //           scrollDirection: Axis.horizontal,
-        //           itemCount: personalMenuCards.length,
-        //           itemBuilder: (context, index) {
-        //             return Padding(
-        //               padding: EdgeInsets.all(8.0),
-        //               child: personalMenuCards[index],
-        //             );
-        //           },
-        //         ),
-        //       ),
-        //     ),
-        //   ],
-        // ),
       ],
     );
   }

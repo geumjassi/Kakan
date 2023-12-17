@@ -211,15 +211,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   const SizedBox(height: 15),
-                  Container(
-                      padding: const EdgeInsets.only(left: 7.0),
-                      child: PersonalMenu()),
-                  Container(
-                      padding: const EdgeInsets.only(left: 7.0),
-                      child: FollowedRestaurants()),
-                  Container(
-                      padding: const EdgeInsets.only(left: 7.0),
-                      child: SavedMeals()),
+                  PersonalMenu(),
+                  FollowedRestaurants(),
+                  SavedMeals(),
                   const SizedBox(
                     height: 50,
                   ),
