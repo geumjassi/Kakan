@@ -17,7 +17,7 @@ void main() {
       routes: {
         '/home': (context) => const HomeScreen(),
         '/add': (context) => const AddItemScreen(),
-        '/save': (context) => const SaveScreen(),
+        '/save': (context) => SaveScreen(),
       },
     ),
   ));

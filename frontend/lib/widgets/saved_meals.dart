@@ -84,15 +84,15 @@ class _SavedMealsState extends State<SavedMeals> {
                       ),
                     ),
                     const SizedBox(width: 100),
-                    Text(
-                      'See More >',
-                      // Replace with your desired text style
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(254, 114, 76, 1)),
-                    ),
+                    // Text(
+                    //   'See More >',
+                    //   // Replace with your desired text style
+                    //   style: TextStyle(
+                    //       fontSize: 14,
+                    //       fontFamily: 'Montserrat',
+                    //       fontWeight: FontWeight.bold,
+                    //       color: Color.fromRGBO(254, 114, 76, 1)),
+                    // ),
                   ],
                 ),
               ),

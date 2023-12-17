@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/kakan_logo_icons.dart';
+import 'package:frontend/screens/home/home_screen.dart';
 import 'package:frontend/screens/splash_page.dart';
 // import 'package:kakan_app/kakan_logo_icons.dart';
 // import 'package:kakan_app/screens/splash/splash_page.dart';
@@ -417,7 +418,7 @@ class QuickShuffle extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const SplashPage()),
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
         );
       },
       child: Container(

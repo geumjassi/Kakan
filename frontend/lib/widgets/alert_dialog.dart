@@ -31,57 +31,18 @@ class ShuffleAlertDialog extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Positioned(
-              top: 180, // Adjust as needed
+              top: 165, // Adjust as needed
               left: 0,
               right: 0,
               child: SvgPicture.asset(
-                'images/curved.svg',
+                'images/finalunion.svg',
                 fit: BoxFit.fill,
                 // width: MediaQuery.of(context).size.width,
                 // height: MediaQuery.of(context).size.height,
               ),
             ),
-
-            // Stack(
-            //   children: [
-            //     // Container(
-            //     //     decoration: BoxDecoration(
-            //     //         borderRadius: const BorderRadius.only(
-            //     //             topLeft: Radius.circular(21.5),
-            //     //             topRight: Radius.circular(21.5)),
-            //     //         image: DecorationImage(
-            //     //             fit: BoxFit.cover, image: NetworkImage(image)))),
-            //     FittedBox(
-            //         fit: BoxFit.scaleDown,
-            //         child: SvgPicture.asset('images/Union.svg'))
-            //   ],
-            // ),
-            // Container(
-            //   clipBehavior: Clip.hardEdge,
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(20.0),
-            //     // border: Border.all(color: Colors.green, width: 2.0)
-            //   ),
-            //   // child: ClipPath(
-            //   //   clipper: ClipPathClipper(),
-            //   //   child: Container(
-            //   //       decoration: BoxDecoration(
-            //   //     borderRadius: const BorderRadius.only(
-            //   //         topLeft: Radius.circular(21.5),
-            //   //         topRight: Radius.circular(21.5)),
-            //   //     image: DecorationImage(
-            //   //       fit: BoxFit.cover,
-            //   //       image: NetworkImage(image),
-            //   //     ),
-            //   //   )),
-            //   // ),
-            // ),
-
-            // top: 350,
-            // left: 20,
-
             Positioned(
-              top: 280,
+              top: 230,
               left: 20,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -118,21 +79,20 @@ class ShuffleAlertDialog extends StatelessWidget {
                 ],
               ),
             ),
-
             Positioned(
-              top: 350,
+              top: 330,
               left: 20,
               child: Column(
                 children: [
                   Row(
                     children: [
                       SvgPicture.asset('images/Trailing Icon.svg'),
-                      const Text('<> km away...',
+                      const Text('<> km away',
                           style: TextStyle(
                               fontFamily: 'Montserrat',
                               color: Color.fromRGBO(254, 114, 76, 1))),
                       SizedBox(
-                        width: 45,
+                        width: 50,
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(

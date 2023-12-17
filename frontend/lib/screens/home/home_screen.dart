@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:frontend/SavedMealsNotifier.dart';
 import 'package:frontend/screens/add_items/add_items_screen.dart';
+import 'package:frontend/screens/saved_items/saved_items_screen.dart';
 import 'package:frontend/widgets/alert_dialog.dart';
 import 'package:frontend/widgets/card_feature.dart';
 import 'package:frontend/widgets/custom_appbar.dart';
@@ -211,13 +212,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 15),
                   Container(
-                      padding: const EdgeInsets.only(left: 10.0),
+                      padding: const EdgeInsets.only(left: 7.0),
                       child: PersonalMenu()),
                   Container(
-                      padding: const EdgeInsets.only(left: 10.0),
+                      padding: const EdgeInsets.only(left: 7.0),
                       child: FollowedRestaurants()),
                   Container(
-                      padding: const EdgeInsets.only(left: 10.0),
+                      padding: const EdgeInsets.only(left: 7.0),
                       child: SavedMeals()),
                   const SizedBox(
                     height: 50,
@@ -255,7 +256,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: IconButton(
                   icon: SvgPicture.asset('images/heart.svg',
                       height: 50, width: 50, fit: BoxFit.scaleDown),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SaveScreen()),
+                    );
+                  },
                 ),
               ),
               Padding(
